@@ -23,7 +23,6 @@ int main(int argc, const char **argv) {
     std::vector<std::string> code = split(str, "\n");
     std::vector<std::string> token = {};
     std::string stack = "";
-    std::string a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:;{}[]_+*-%";
     for (int i = 0; i < code.size(); i++) {
         std::vector<std::string> v = split(code[i], ";");
         for (int y = 0; y < v.size(); y++) {
@@ -40,13 +39,13 @@ int main(int argc, const char **argv) {
                 std::vector<std::string> x = split(token[n], ".");
                 for (int i = 0; i < x.size(); i++) {
                     if (!x[i].empty()) {
-                        // std::cerr << x[i] << std::endl;
-                        stack += a[std::stoi(x[i])];
+                        stack +=
+                            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:;{}[]"
+                            "_+*-%"[std::stoi(x[i])];
                     }
                 }
                 std::cerr << stack << std::endl;
                 stack = "";
-                // std::cerr << a[std::stoi(token[i].substr(1, token[i].size() - 1))] << std::endl;
             }
         }
     }
