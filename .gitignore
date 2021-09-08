@@ -1,0 +1,7 @@
+test.txt
+*.s
+obj
+Mainapp
+.vscode
+*.icloud
+.DS_Store
