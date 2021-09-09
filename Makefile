@@ -12,13 +12,13 @@ $(NAME): $(OBJECTS)
 	$(CXX) -o $@ $^
 $(OBJDIR)/%.o: %.cpp
 	@[ -d $(OBJDIR) ]
-	$(CXX) $(CFLAGS) $(INCLUDE) -c -o $@ $<
+	$(CXX) $(CFLAGS) $(INCLUDE) -c -o $@ $< -v
 .PHONY: check
 check:
 	cppcheck --enable=all ./
 .PHONY: clean
 clean:
-	rm -rf obj/*.o
+	$(RM) obj/*.o
 .PHONY:assembly
 assembly:$(SOURCES)
 	$(CXX) $(INCLUDE) $(CFLAGS) -S
